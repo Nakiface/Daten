@@ -32,7 +32,7 @@
             this.dataGridViewSecond = new System.Windows.Forms.DataGridView();
             this.labelHeader = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelShowDataSource = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSecond)).BeginInit();
             this.SuspendLayout();
@@ -74,28 +74,29 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 55);
+            this.button1.BackgroundImage = global::Daten.Properties.Resources.DataSource;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Location = new System.Drawing.Point(36, 47);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 35);
             this.button1.TabIndex = 3;
-            this.button1.Text = "----";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // labelShowDataSource
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 85);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "label1";
+            this.labelShowDataSource.AutoSize = true;
+            this.labelShowDataSource.Location = new System.Drawing.Point(12, 85);
+            this.labelShowDataSource.Name = "labelShowDataSource";
+            this.labelShowDataSource.Size = new System.Drawing.Size(133, 17);
+            this.labelShowDataSource.TabIndex = 4;
+            this.labelShowDataSource.Text = "Rohdaten Anzeigen";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1022, 471);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelShowDataSource);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.labelHeader);
             this.Controls.Add(this.dataGridViewSecond);
@@ -115,7 +116,7 @@
         private System.Windows.Forms.DataGridView dataGridViewSecond;
         private System.Windows.Forms.Label labelHeader;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelShowDataSource;
     }
 }
 
