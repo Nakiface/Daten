@@ -77,21 +77,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ElectionDistrict.cs" />
-    <Compile Include="MappingObject.cs" />
+    <Compile Include="Data\ElectionDistrict.cs" />
+    <Compile Include="Data\MappingObject.cs" />
     <Compile Include="Operation.cs" />
-    <Compile Include="Parties.cs" />
-    <Compile Include="PollingStation.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Data\Parties.cs" />
+    <Compile Include="Data\PollingStation.cs" />
+    <Compile Include="GUI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GUI\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -120,6 +120,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\DataSource.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Diagramm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Voter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

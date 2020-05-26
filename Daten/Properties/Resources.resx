@@ -121,4 +121,10 @@
   <data name="DataSource" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DataSource.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Diagramm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Diagramm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Voter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Voter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
