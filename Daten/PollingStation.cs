@@ -1,53 +1,9 @@
 ﻿using CsvHelper.Configuration.Attributes;
 using DevExpress.Data.Filtering.Helpers;
 using Org.BouncyCastle.Asn1.Mozilla;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Daten
 {
-    class MappingObject
-    {
-        public List<PollingStation> StationList { get; set; }
-        public MappingObject(List<PollingStation> stationList)
-        {
-            this.StationList = stationList;
-        }
-
-        public List<ElectionDistrict> GetDistrictList()
-        {
-            var districtList = StationList.Select(x => x.DistrictName).Distinct();
-            foreach (var districtName in districtList)
-            {
-                foreach (var stationInfo in StationList)
-                {
-                    if (stationInfo.DistrictName == districtName)
-                    {
-
-                    }
-                }
-            }
-            return null;
-        }
-    }
-
-
-
-    class ElectionDistrict
-    {
-        public string DistrictName { get; set; }
-        public int EligibleVoters { get; set; }
-        public int TotalVoters { get; set; }
-        public List<Parties> PartieList { get; set; }       
-    }
-
-    class Parties
-    {
-        public string Name { get; set; }
-        public int Voters { get; set; }
-        public double Percent { get; set; }
-    }
-
     class PollingStation
     {
         [Name("Stimmart")]
@@ -138,7 +94,7 @@ namespace Daten
         public int Volksabstimmung { get; set; }
 
         [Name("OeDP")]
-        public int ÖDP { get; set; }
+        public int OeDP { get; set; }
 
         [Name("FREIEWaeHLER")]
         public int FreieWaehler { get; set; }
