@@ -4,7 +4,7 @@ using Org.BouncyCastle.Asn1.Mozilla;
 
 namespace Daten
 {
-    class PollingStation
+    public class PollingStation
     {
         [Name("Stimmart")]
         public string VoteFor { get; set; }

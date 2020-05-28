@@ -20,8 +20,50 @@ namespace Daten
                 mappingObject.GetDistrictList();
                 return stationList;
 
-            }
-            
+            }           
+        }
+
+        public static List<PartieColor> CreatePariteColorList()
+        {
+            List<PartieColor> partieColorList = new List<PartieColor>()
+            {
+                new PartieColor
+                {
+                    Name = "SPD",
+                    Color = System.Windows.Media.Brushes.Red
+                },
+                new PartieColor
+                {
+                    Name = "CDU",
+                    Color = System.Windows.Media.Brushes.Black
+                },
+                new PartieColor
+                {
+                    Name = "Grüne",
+                    Color = System.Windows.Media.Brushes.Green
+                },
+                new PartieColor
+                {
+                    Name = "Die Linke",
+                    Color = System.Windows.Media.Brushes.Violet
+                },
+                new PartieColor
+                {
+                    Name = "AfD",
+                    Color = System.Windows.Media.Brushes.Blue
+                },
+                new PartieColor
+                {
+                    Name = "Piraten",
+                    Color = System.Windows.Media.Brushes.Orange
+                },
+                new PartieColor
+                {
+                    Name = "FDP",
+                    Color = System.Windows.Media.Brushes.Yellow
+                }
+            };
+            return partieColorList;
         }
     }
 }

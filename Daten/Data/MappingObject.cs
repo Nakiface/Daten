@@ -10,17 +10,9 @@ namespace Daten
         {
             this.StationList = stationList;
         }
-
-        public List<ElectionDistrict> GetDistrictList()
+        private List<Parties> CreatePartyList(IGrouping<string, PollingStation> cl)
         {
-            List<ElectionDistrict> result = StationList
-                .GroupBy(l => l.DistrictName)
-                .Select(cl => new ElectionDistrict
-                {
-                    DistrictName = cl.First().DistrictName,
-                    EligibleVoters = cl.Sum(x => x.EligibleVoters),
-                    TotalVoters = cl.Sum(x => x.Voters),
-                    PartieList = new List<Parties>()
+            var partieList = new List<Parties>()
                     {
                         new Parties("SPD", cl.Sum(x => x.SPD), cl.Sum(x => x.Voters)),
                         new Parties("CDU", cl.Sum(x => x.CDU), cl.Sum(x => x.Voters)),
@@ -62,10 +54,35 @@ namespace Daten
                         new Parties("Partei für die Tiere", cl.Sum(x => x.ParteiFuerTiere), cl.Sum(x => x.Voters)),
                         new Parties("Gesundheitsforschung", cl.Sum(x => x.Gesundheitsforschung), cl.Sum(x => x.Voters)),
                         new Parties("Volt", cl.Sum(x => x.Volt), cl.Sum(x => x.Voters))
-                    }
+                    };
+            return partieList;
+        }
+        public List<ElectionDistrict> GetDistrictList()
+        {
+            List<ElectionDistrict> result = new List<ElectionDistrict>();
+            result.Add
+                (
+                StationList
+                .GroupBy(l => l.VoteFor)
+                .Select(cl => new ElectionDistrict
+                {
+                    DistrictName = "Berlin",
+                    EligibleVoters = cl.Sum(x => x.EligibleVoters),
+                    TotalVoters = cl.Sum(x => x.Voters),
+                    PartieList = CreatePartyList(cl)
                 }
-                ).ToList();
-
+                ).ToList().First()
+                );
+            result.AddRange(StationList
+                .GroupBy(l => l.DistrictName)
+                .Select(cl => new ElectionDistrict
+                {
+                    DistrictName = cl.First().DistrictName,
+                    EligibleVoters = cl.Sum(x => x.EligibleVoters),
+                    TotalVoters = cl.Sum(x => x.Voters),
+                    PartieList = CreatePartyList(cl)
+                }
+                ).ToList());          
             return result;
         }
     }
