@@ -2,12 +2,22 @@
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 using CsvHelper;
 
 namespace Daten
 {
     static class Operation
     {
+        public static List<string> GetColumnNames(DataGridView dataGridView)
+        {
+            List<string> dataGridColums = new List<string>();
+            foreach (DataGridViewColumn colum in dataGridView.Columns)
+            {
+                dataGridColums.Add(colum.Name);
+            }
+            return dataGridColums;
+        }
         public static List<PollingStation> GetDataSource (string path)
         {
             using (var reader = new StreamReader(path))

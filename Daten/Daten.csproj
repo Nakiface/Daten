@@ -98,14 +98,8 @@
       <DependentUpon>DataSourceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\ElectionDistrict.cs" />
-    <Compile Include="Data\MappingObject.cs" />
-    <Compile Include="GUI\DiagamForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\DiagamForm.Designer.cs">
-      <DependentUpon>DiagamForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Operation.cs" />
+    <Compile Include="Core\MappingObject.cs" />
+    <Compile Include="Core\Operation.cs" />
     <Compile Include="Data\Parties.cs" />
     <Compile Include="Data\PollingStation.cs" />
     <Compile Include="GUI\MainForm.cs">
@@ -118,9 +112,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\DataSourceForm.resx">
       <DependentUpon>DataSourceForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\DiagamForm.resx">
-      <DependentUpon>DiagamForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

@@ -37,6 +37,10 @@
             this.ButtonShowVoter = new System.Windows.Forms.Button();
             this.buttonSourceData = new System.Windows.Forms.Button();
             this.pieChart1 = new LiveCharts.WinForms.PieChart();
+            this.comboBoxMain = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonMainDec = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSecond)).BeginInit();
             this.SuspendLayout();
@@ -80,7 +84,7 @@
             // labelShowDataSource
             // 
             this.labelShowDataSource.AutoSize = true;
-            this.labelShowDataSource.Location = new System.Drawing.Point(12, 85);
+            this.labelShowDataSource.Location = new System.Drawing.Point(604, 45);
             this.labelShowDataSource.Name = "labelShowDataSource";
             this.labelShowDataSource.Size = new System.Drawing.Size(133, 17);
             this.labelShowDataSource.TabIndex = 4;
@@ -89,7 +93,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(160, 85);
+            this.label2.Location = new System.Drawing.Point(454, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(140, 17);
             this.label2.TabIndex = 8;
@@ -99,7 +103,7 @@
             // 
             this.ButtonShowVoter.BackgroundImage = global::Daten.Properties.Resources.Voter;
             this.ButtonShowVoter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonShowVoter.Location = new System.Drawing.Point(195, 47);
+            this.ButtonShowVoter.Location = new System.Drawing.Point(489, 7);
             this.ButtonShowVoter.Name = "ButtonShowVoter";
             this.ButtonShowVoter.Size = new System.Drawing.Size(75, 35);
             this.ButtonShowVoter.TabIndex = 7;
@@ -111,7 +115,7 @@
             // 
             this.buttonSourceData.BackgroundImage = global::Daten.Properties.Resources.DataSource;
             this.buttonSourceData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonSourceData.Location = new System.Drawing.Point(36, 47);
+            this.buttonSourceData.Location = new System.Drawing.Point(628, 7);
             this.buttonSourceData.Name = "buttonSourceData";
             this.buttonSourceData.Size = new System.Drawing.Size(75, 35);
             this.buttonSourceData.TabIndex = 3;
@@ -129,12 +133,51 @@
             this.pieChart1.TabIndex = 9;
             this.pieChart1.Text = "pieChart1";
             // 
+            // comboBoxMain
+            // 
+            this.comboBoxMain.FormattingEnabled = true;
+            this.comboBoxMain.Location = new System.Drawing.Point(12, 84);
+            this.comboBoxMain.Name = "comboBoxMain";
+            this.comboBoxMain.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxMain.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 17);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Sotieren nach:";
+            // 
+            // buttonMainDec
+            // 
+            this.buttonMainDec.Location = new System.Drawing.Point(140, 84);
+            this.buttonMainDec.Name = "buttonMainDec";
+            this.buttonMainDec.Size = new System.Drawing.Size(24, 23);
+            this.buttonMainDec.TabIndex = 12;
+            this.buttonMainDec.UseVisualStyleBackColor = true;
+            this.buttonMainDec.Click += new System.EventHandler(this.buttonMainDec_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(170, 85);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(24, 23);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1108, 471);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonMainDec);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBoxMain);
             this.Controls.Add(this.pieChart1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ButtonShowVoter);
@@ -163,6 +206,10 @@
         private System.Windows.Forms.Button ButtonShowVoter;
         private System.Windows.Forms.Label label2;
         private LiveCharts.WinForms.PieChart pieChart1;
+        private System.Windows.Forms.ComboBox comboBoxMain;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonMainDec;
+        private System.Windows.Forms.Button button2;
     }
 }
 

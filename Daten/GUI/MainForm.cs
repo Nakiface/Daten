@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CsvHelper.Configuration.Attributes;
-using Daten.GUI;
+using DevExpress.Data.Helpers;
 using DevExpress.Data.Mask;
 using GoogleApi;
 using LiveCharts;
 using LiveCharts.Wpf;
+using System.Reflection;
+using DevExpress.Utils.Extensions;
 
 namespace Daten
 {
@@ -26,6 +28,13 @@ namespace Daten
             InitializeEventhandler();
             LoadingGlobalVariables();
             ConfigureDataGrids();
+            InitializeComboBox(comboBoxMain, dataGridViewMain);
+            
+        }
+
+        private void InitializeComboBox(ComboBox comboBoxMain, DataGridView dataGridView)
+        {
+            comboBoxMain.DataSource = Operation.GetColumnNames(dataGridView);
         }
 
         private void BuildDiagram(List<Parties> partieList)
@@ -110,6 +119,8 @@ namespace Daten
 
         private void DataGridViewMain_SelectionChanged(object sender, EventArgs e)
         {
+            var test = dataGridViewMain.Columns;
+            
             ElectionDistrict electionDistrict = (ElectionDistrict)dataGridViewMain.CurrentRow.DataBoundItem;
             dataGridViewSecond.DataSource = electionDistrict.PartieList;
             BuildDiagram(electionDistrict.PartieList);
@@ -124,6 +135,22 @@ namespace Daten
         private void ButtonShowVoter_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonMainDec_Click(object sender, EventArgs e)
+        {
+            var columnNames = Operation.GetColumnNames(dataGridViewMain);
+            var choiceToSort = comboBoxMain.SelectedItem.ToString();
+            string propertyName = "";
+            foreach (DataGridViewColumn column in dataGridViewMain.Columns)
+            {
+                if (column.Name == choiceToSort)
+                    propertyName = column.DataPropertyName.ToString();              
+            }
+            
+            List<ElectionDistrict> sortedDistrictList =
+                DistrictList.OrderBy(x => x.GetType().GetProperty(propertyName)).ToList();
+            dataGridViewMain.DataSource = sortedDistrictList;
         }
     }
 }
