@@ -157,7 +157,7 @@
             this.buttonMainDec.Size = new System.Drawing.Size(24, 23);
             this.buttonMainDec.TabIndex = 12;
             this.buttonMainDec.UseVisualStyleBackColor = true;
-            this.buttonMainDec.Click += new System.EventHandler(this.buttonMainDec_Click);
+            this.buttonMainDec.Click += new System.EventHandler(this.ButtonMainDec_Click);
             // 
             // button2
             // 
@@ -167,6 +167,7 @@
             this.button2.TabIndex = 13;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // MainForm
             // 
@@ -188,6 +189,7 @@
             this.Controls.Add(this.dataGridViewMain);
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSecond)).EndInit();
             this.ResumeLayout(false);

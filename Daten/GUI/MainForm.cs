@@ -137,20 +137,38 @@ namespace Daten
 
         }
 
-        private void buttonMainDec_Click(object sender, EventArgs e)
+        private void ButtonMainDec_Click(object sender, EventArgs e)
         {
-            var columnNames = Operation.GetColumnNames(dataGridViewMain);
             var choiceToSort = comboBoxMain.SelectedItem.ToString();
+            OrderList(choiceToSort, true);
+        }
+
+        private void OrderList(string choiceToSort, bool dec)
+        {
             string propertyName = "";
             foreach (DataGridViewColumn column in dataGridViewMain.Columns)
             {
                 if (column.Name == choiceToSort)
-                    propertyName = column.DataPropertyName.ToString();              
+                    propertyName = column.DataPropertyName.ToString();
             }
-            
-            List<ElectionDistrict> sortedDistrictList =
-                DistrictList.OrderBy(x => x.GetType().GetProperty(propertyName)).ToList();
+            List<ElectionDistrict> sortedDistrictList = new List<ElectionDistrict>();
+            if (dec)
+            {
+                sortedDistrictList =
+                    DistrictList.OrderBy(x => x.GetType().GetProperty(propertyName).GetValue(x)).ToList();
+            }
+            else
+            {
+                sortedDistrictList =
+                    DistrictList.OrderByDescending(x => x.GetType().GetProperty(propertyName).GetValue(x)).ToList();
+            }
             dataGridViewMain.DataSource = sortedDistrictList;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var choiceToSort = comboBoxMain.SelectedItem.ToString();
+            OrderList(choiceToSort, false);
         }
     }
 }
