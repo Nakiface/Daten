@@ -14,13 +14,16 @@ namespace Daten.GUI
     {
         private List<ElectionDistrict> DistrictList { get; set; }
         private List<PollingStation> StationList { get; set; }
+        private NecVotersLogic NecVoteLogic { get; set; }
         public NacessaryVotesForm(List<ElectionDistrict> districtList, List<PollingStation> stationList)
         {
             this.DistrictList = districtList;
             this.StationList = stationList;
+            this.NecVoteLogic = new NecVotersLogic(districtList, stationList);
             InitializeComponent();
             InitializeComboBoxScope();
             InitializeEvents();
+            InitiliazeDataGrid();
         }
 
         private void InitializeEvents()
@@ -67,13 +70,19 @@ namespace Daten.GUI
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            InitiliazeDataGrid();
+            var necVoteInfo = NecVoteLogic.CreateInfoFromDistrict(comboBoxChoice.Text);
+            dataGridViewNV.DataSource = necVoteInfo.NecVoterPartieList;
+            CreateLabelInfo(necVoteInfo);
+        }
+
+        private void CreateLabelInfo(NecVoters necVoteInfo)
+        {
+            labelInfo.Text = $"In {necVoteInfo.Name} haben wir {necVoteInfo.TotalVoters} Wähler.\nMan benötigt {Convert.ToInt32(necVoteInfo.SecureSeat)} Stimmen um einen Sitz im EU Parlament zu erhalten";
         }
 
         private void InitiliazeDataGrid()
         {
             dataGridViewNV.AutoGenerateColumns = false;
-            dataGridViewNV.DataSource = DistrictList;
 
             DataGridViewColumn columnName = new DataGridViewTextBoxColumn();
             columnName.DataPropertyName = "Name";

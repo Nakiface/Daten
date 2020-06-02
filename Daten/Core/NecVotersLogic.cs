@@ -19,7 +19,7 @@ namespace Daten.GUI
         public NecVoters CreateInfoFromDistrict(string districtName)
         {
             var district =
-                DistrictList.Select(x => (ElectionDistrict)x.GetType().GetProperty(districtName).GetValue(x)).First();
+                DistrictList.Where(x => x.DistrictName == districtName).First();
             NecVoters necVoters = new NecVoters();
 
             necVoters.Name = district.DistrictName;
