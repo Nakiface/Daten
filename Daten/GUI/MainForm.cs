@@ -15,6 +15,7 @@ using LiveCharts;
 using LiveCharts.Wpf;
 using System.Reflection;
 using DevExpress.Utils.Extensions;
+using Daten.GUI;
 
 namespace Daten
 {
@@ -28,8 +29,7 @@ namespace Daten
             InitializeEventhandler();
             LoadingGlobalVariables();
             ConfigureDataGrids();
-            InitializeComboBox(comboBoxMain, dataGridViewMain);
-            
+            InitializeComboBox(comboBoxMain, dataGridViewMain);           
         }
 
         private void InitializeComboBox(ComboBox comboBoxMain, DataGridView dataGridView)
@@ -134,7 +134,8 @@ namespace Daten
 
         private void ButtonShowVoter_Click(object sender, EventArgs e)
         {
-
+            NacessaryVotesForm nacessaryVotes = new NacessaryVotesForm(DistrictList, StationList);
+            nacessaryVotes.ShowDialog();
         }
 
         private void ButtonMainDec_Click(object sender, EventArgs e)

@@ -189,7 +189,6 @@
             this.Controls.Add(this.dataGridViewMain);
             this.Name = "MainForm";
             this.Text = "MainForm";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSecond)).EndInit();
             this.ResumeLayout(false);

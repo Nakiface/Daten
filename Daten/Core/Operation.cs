@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using CsvHelper;
 
@@ -74,6 +76,18 @@ namespace Daten
                 }
             };
             return partieColorList;
+        }
+
+        internal static IEnumerable<string> GetAllStationNamens(List<PollingStation> stationList)
+        {
+            List<string> result = stationList.Where(x => x.Address != "").Select(y => y.Address).ToList();
+            return result;
+        }
+
+        internal static List<string> GetAllDistrictNames(List<ElectionDistrict> districtList)
+        {
+            List<string> result = districtList.Where(x => x.DistrictName != "Berlin").Select(y => y.DistrictName).ToList();
+            return result;
         }
     }
 }

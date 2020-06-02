@@ -2,7 +2,7 @@
 
 namespace Daten
 {
-    class ElectionDistrict
+    public class ElectionDistrict
     {
         public string DistrictName { get; set; }
         public int EligibleVoters { get; set; }
