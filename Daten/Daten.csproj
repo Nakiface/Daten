@@ -91,6 +91,8 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\NecVoters.cs" />
+    <Compile Include="Data\NecVotersPatie.cs" />
     <Compile Include="GUI\DataSourceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,11 +104,11 @@
     <Compile Include="Core\Operation.cs" />
     <Compile Include="Data\Parties.cs" />
     <Compile Include="Data\PollingStation.cs" />
-    <Compile Include="GUI\NacessaryVotes.cs">
+    <Compile Include="GUI\NacessaryVotesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\NacessaryVotes.Designer.cs">
-      <DependentUpon>NacessaryVotes.cs</DependentUpon>
+    <Compile Include="GUI\NacessaryVotesForm.Designer.cs">
+      <DependentUpon>NacessaryVotesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\MainForm.cs">
       <SubType>Form</SubType>
@@ -114,6 +116,7 @@
     <Compile Include="GUI\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\NecVotersLogic.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\DataSourceForm.resx">
@@ -122,8 +125,8 @@
     <EmbeddedResource Include="GUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\NacessaryVotes.resx">
-      <DependentUpon>NacessaryVotes.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\NacessaryVotesForm.resx">
+      <DependentUpon>NacessaryVotesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

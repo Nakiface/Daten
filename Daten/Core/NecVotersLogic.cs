@@ -21,6 +21,7 @@ namespace Daten.GUI
             var district =
                 DistrictList.Select(x => (ElectionDistrict)x.GetType().GetProperty(districtName).GetValue(x)).First();
             NecVoters necVoters = new NecVoters();
+
             necVoters.Name = district.DistrictName;
             necVoters.TotalVoters = district.TotalVoters;
             necVoters.UnsecureSeat = district.TotalVoters * (MinProcentage / 100);
