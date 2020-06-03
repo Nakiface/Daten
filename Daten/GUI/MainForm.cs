@@ -107,7 +107,7 @@ namespace Daten
 
         private void LoadingGlobalVariables()
         {
-            StationList = Operation.GetDataSource(@"C:\Bernhard\Schule\AS\Programmieren\Daten\CSV\EU2019_BE_EndgErg_Wahlbezirke.csv");
+            StationList = Operation.GetDataSource(@"C:\Projekte_Bernhard\Programme\Daten\CSV\EU2019_BE_EndgErg_Wahlbezirke.csv");
             MappingObject mappingObject = new MappingObject(StationList);
             DistrictList = mappingObject.GetDistrictList();
         }

@@ -70,7 +70,11 @@ namespace Daten.GUI
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            var necVoteInfo = NecVoteLogic.CreateInfoFromDistrict(comboBoxChoice.Text);
+            NecVoters necVoteInfo = new NecVoters();
+            if (comboBoxScope.Text == "Wahllokal")
+                necVoteInfo = NecVoteLogic.CreateInfoFromStation(comboBoxChoice.Text);
+            else
+                necVoteInfo = NecVoteLogic.CreateInfoFromDistrict(comboBoxChoice.Text);
             dataGridViewNV.DataSource = necVoteInfo.NecVoterPartieList;
             CreateLabelInfo(necVoteInfo);
         }
