@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.dataGridViewMain = new System.Windows.Forms.DataGridView();
             this.dataGridViewSecond = new System.Windows.Forms.DataGridView();
             this.labelHeader = new System.Windows.Forms.Label();
@@ -40,7 +41,10 @@
             this.comboBoxMain = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonMainDec = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonMainAc = new System.Windows.Forms.Button();
+            this.buttonSecAc = new System.Windows.Forms.Button();
+            this.buttonSecDec = new System.Windows.Forms.Button();
+            this.comboBoxSecound = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSecond)).BeginInit();
             this.SuspendLayout();
@@ -152,6 +156,8 @@
             // 
             // buttonMainDec
             // 
+            this.buttonMainDec.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMainDec.BackgroundImage")));
+            this.buttonMainDec.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonMainDec.Location = new System.Drawing.Point(140, 84);
             this.buttonMainDec.Name = "buttonMainDec";
             this.buttonMainDec.Size = new System.Drawing.Size(24, 23);
@@ -159,15 +165,46 @@
             this.buttonMainDec.UseVisualStyleBackColor = true;
             this.buttonMainDec.Click += new System.EventHandler(this.ButtonMainDec_Click);
             // 
-            // button2
+            // buttonMainAc
             // 
-            this.button2.Location = new System.Drawing.Point(170, 85);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(24, 23);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonMainAc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMainAc.BackgroundImage")));
+            this.buttonMainAc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonMainAc.Location = new System.Drawing.Point(170, 85);
+            this.buttonMainAc.Name = "buttonMainAc";
+            this.buttonMainAc.Size = new System.Drawing.Size(24, 23);
+            this.buttonMainAc.TabIndex = 13;
+            this.buttonMainAc.UseVisualStyleBackColor = true;
+            this.buttonMainAc.Click += new System.EventHandler(this.buttonMainAc_Click);
+            // 
+            // buttonSecAc
+            // 
+            this.buttonSecAc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSecAc.BackgroundImage")));
+            this.buttonSecAc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonSecAc.Location = new System.Drawing.Point(686, 84);
+            this.buttonSecAc.Name = "buttonSecAc";
+            this.buttonSecAc.Size = new System.Drawing.Size(24, 23);
+            this.buttonSecAc.TabIndex = 16;
+            this.buttonSecAc.UseVisualStyleBackColor = true;
+            this.buttonSecAc.Click += new System.EventHandler(this.buttonSecAc_Click);
+            // 
+            // buttonSecDec
+            // 
+            this.buttonSecDec.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSecDec.BackgroundImage")));
+            this.buttonSecDec.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonSecDec.Location = new System.Drawing.Point(656, 83);
+            this.buttonSecDec.Name = "buttonSecDec";
+            this.buttonSecDec.Size = new System.Drawing.Size(24, 23);
+            this.buttonSecDec.TabIndex = 15;
+            this.buttonSecDec.UseVisualStyleBackColor = true;
+            this.buttonSecDec.Click += new System.EventHandler(this.buttonSecDec_Click);
+            // 
+            // comboBoxSecound
+            // 
+            this.comboBoxSecound.FormattingEnabled = true;
+            this.comboBoxSecound.Location = new System.Drawing.Point(528, 83);
+            this.comboBoxSecound.Name = "comboBoxSecound";
+            this.comboBoxSecound.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxSecound.TabIndex = 14;
             // 
             // MainForm
             // 
@@ -175,7 +212,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1108, 471);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonSecAc);
+            this.Controls.Add(this.buttonSecDec);
+            this.Controls.Add(this.comboBoxSecound);
+            this.Controls.Add(this.buttonMainAc);
             this.Controls.Add(this.buttonMainDec);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxMain);
@@ -210,7 +250,10 @@
         private System.Windows.Forms.ComboBox comboBoxMain;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonMainDec;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonMainAc;
+        private System.Windows.Forms.Button buttonSecAc;
+        private System.Windows.Forms.Button buttonSecDec;
+        private System.Windows.Forms.ComboBox comboBoxSecound;
     }
 }
 
