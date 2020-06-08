@@ -24,6 +24,12 @@ namespace Daten.GUI
             InitializeComboBoxScope();
             InitializeEvents();
             InitiliazeDataGrid();
+            richTextBoxInfo.Text = LoadingInfoText();
+        }
+
+        private string LoadingInfoText()
+        {
+            return "Hier können Sie nachschauen wieviel Stimmen jede Partei von einem Europasitz entfehrnt ist. Die Ergebnisse werden Anteilig angezeigt.";
         }
 
         private void InitializeEvents()
@@ -66,6 +72,7 @@ namespace Daten.GUI
                 "Wahllokal"
             };
             comboBoxScope.DataSource = ScopeList;
+            BuildComboBoxChoice();
         }
 
         private void buttonStart_Click(object sender, EventArgs e)

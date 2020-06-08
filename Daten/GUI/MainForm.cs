@@ -29,7 +29,8 @@ namespace Daten
             InitializeEventhandler();
             LoadingGlobalVariables();
             ConfigureDataGrids();
-            InitializeComboBox(comboBoxMain, dataGridViewMain);           
+            InitializeComboBox(comboBoxMain, dataGridViewMain);
+            InitializeComboBox(comboBoxSecound, dataGridViewSecond);
         }
 
         private void InitializeComboBox(ComboBox comboBoxMain, DataGridView dataGridView)
@@ -107,7 +108,7 @@ namespace Daten
 
         private void LoadingGlobalVariables()
         {
-            StationList = Operation.GetDataSource(@"C:\Projekte_Bernhard\Programme\Daten\CSV\EU2019_BE_EndgErg_Wahlbezirke.csv");
+            StationList = Operation.GetDataSource(@"C:\Bernhard\Schule\AS\PROGRA~1\Daten\CSV\EU2019~1.CSV");
             MappingObject mappingObject = new MappingObject(StationList);
             DistrictList = mappingObject.GetDistrictList();
         }
@@ -119,8 +120,6 @@ namespace Daten
 
         private void DataGridViewMain_SelectionChanged(object sender, EventArgs e)
         {
-            var test = dataGridViewMain.Columns;
-            
             ElectionDistrict electionDistrict = (ElectionDistrict)dataGridViewMain.CurrentRow.DataBoundItem;
             dataGridViewSecond.DataSource = electionDistrict.PartieList;
             BuildDiagram(electionDistrict.PartieList);
@@ -141,10 +140,33 @@ namespace Daten
         private void ButtonMainDec_Click(object sender, EventArgs e)
         {
             var choiceToSort = comboBoxMain.SelectedItem.ToString();
-            OrderList(choiceToSort, true);
+            dataGridViewMain.DataSource = OrderDistrictList(choiceToSort, true);
         }
 
-        private void OrderList(string choiceToSort, bool dec)
+        private List<Parties> OrderPartieList(string choiceToSort, bool dec)
+        {
+            string propertyName = "";
+            ElectionDistrict electionDistrict = (ElectionDistrict)dataGridViewMain.CurrentRow.DataBoundItem;
+            foreach (DataGridViewColumn column in dataGridViewSecond.Columns)
+            {
+                if (column.Name == choiceToSort)
+                    propertyName = column.DataPropertyName.ToString();
+            }
+            List<Parties> sortedDistrictList = new List<Parties>();
+            if (dec)
+            {
+                sortedDistrictList =
+                    electionDistrict.PartieList.OrderBy(x => x.GetType().GetProperty(propertyName).GetValue(x)).ToList();
+            }
+            else
+            {
+                sortedDistrictList =
+                    electionDistrict.PartieList.OrderByDescending(x => x.GetType().GetProperty(propertyName).GetValue(x)).ToList();
+            }
+            return sortedDistrictList;
+        }
+
+        private List<ElectionDistrict> OrderDistrictList(string choiceToSort, bool dec)
         {
             string propertyName = "";
             foreach (DataGridViewColumn column in dataGridViewMain.Columns)
@@ -163,13 +185,25 @@ namespace Daten
                 sortedDistrictList =
                     DistrictList.OrderByDescending(x => x.GetType().GetProperty(propertyName).GetValue(x)).ToList();
             }
-            dataGridViewMain.DataSource = sortedDistrictList;
+            return sortedDistrictList;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonMainAc_Click(object sender, EventArgs e)
         {
-            var choiceToSort = comboBoxMain.SelectedItem.ToString();
-            OrderList(choiceToSort, false);
+            var choiceToSort = comboBoxMain.SelectedItem.ToString();          
+            dataGridViewMain.DataSource = OrderDistrictList(choiceToSort, false);
+        }
+
+        private void buttonSecDec_Click(object sender, EventArgs e)
+        {
+            var choiceToSort = comboBoxSecound.SelectedItem.ToString();
+            dataGridViewSecond.DataSource = OrderPartieList(choiceToSort, false);
+        }
+
+        private void buttonSecAc_Click(object sender, EventArgs e)
+        {
+            var choiceToSort = comboBoxSecound.SelectedItem.ToString();
+            dataGridViewSecond.DataSource = OrderPartieList(choiceToSort, true);
         }
     }
 }
