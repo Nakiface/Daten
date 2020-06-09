@@ -88,7 +88,7 @@
             // labelShowDataSource
             // 
             this.labelShowDataSource.AutoSize = true;
-            this.labelShowDataSource.Location = new System.Drawing.Point(604, 45);
+            this.labelShowDataSource.Location = new System.Drawing.Point(943, 123);
             this.labelShowDataSource.Name = "labelShowDataSource";
             this.labelShowDataSource.Size = new System.Drawing.Size(133, 17);
             this.labelShowDataSource.TabIndex = 4;
@@ -97,7 +97,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(454, 45);
+            this.label2.Location = new System.Drawing.Point(936, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(140, 17);
             this.label2.TabIndex = 8;
@@ -107,7 +107,7 @@
             // 
             this.ButtonShowVoter.BackgroundImage = global::Daten.Properties.Resources.Voter;
             this.ButtonShowVoter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonShowVoter.Location = new System.Drawing.Point(489, 7);
+            this.ButtonShowVoter.Location = new System.Drawing.Point(973, 72);
             this.ButtonShowVoter.Name = "ButtonShowVoter";
             this.ButtonShowVoter.Size = new System.Drawing.Size(75, 35);
             this.ButtonShowVoter.TabIndex = 7;
@@ -119,9 +119,9 @@
             // 
             this.buttonSourceData.BackgroundImage = global::Daten.Properties.Resources.DataSource;
             this.buttonSourceData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonSourceData.Location = new System.Drawing.Point(628, 7);
+            this.buttonSourceData.Location = new System.Drawing.Point(973, 142);
             this.buttonSourceData.Name = "buttonSourceData";
-            this.buttonSourceData.Size = new System.Drawing.Size(75, 35);
+            this.buttonSourceData.Size = new System.Drawing.Size(72, 35);
             this.buttonSourceData.TabIndex = 3;
             this.buttonSourceData.UseVisualStyleBackColor = true;
             this.buttonSourceData.Click += new System.EventHandler(this.buttonSourceData_Click);
@@ -131,9 +131,9 @@
             this.pieChart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pieChart1.Location = new System.Drawing.Point(917, 123);
+            this.pieChart1.Location = new System.Drawing.Point(917, 174);
             this.pieChart1.Name = "pieChart1";
-            this.pieChart1.Size = new System.Drawing.Size(179, 340);
+            this.pieChart1.Size = new System.Drawing.Size(179, 289);
             this.pieChart1.TabIndex = 9;
             this.pieChart1.Text = "pieChart1";
             // 

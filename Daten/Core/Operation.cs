@@ -11,6 +11,23 @@ namespace Daten
 {
     static class Operation
     {
+        public static List<Parties> CreateShortPartieList (List<Parties> partieList)
+        {
+            var otherVoters = 0;
+            List<Parties> newPartieList = new List<Parties>();
+            foreach (var partie in partieList)
+            {
+                if (partie.Percent < 2)
+                {
+                    otherVoters += partie.Voters;
+                }
+                else
+                    newPartieList.Add(partie);
+            }
+            newPartieList.Add(new Parties("sonstige", otherVoters, partieList.Sum(x => x.Voters)));
+            return newPartieList;
+        }
+
         public static List<string> GetColumnNames(DataGridView dataGridView)
         {
             List<string> dataGridColums = new List<string>();
@@ -73,6 +90,16 @@ namespace Daten
                 {
                     Name = "FDP",
                     Color = System.Windows.Media.Brushes.Yellow
+                },
+                new PartieColor
+                {
+                    Name = "sonstige",
+                    Color = System.Windows.Media.Brushes.Gray
+                },
+                new PartieColor
+                {
+                    Name = "Die Partei",
+                    Color = System.Windows.Media.Brushes.DarkRed
                 }
             };
             return partieColorList;

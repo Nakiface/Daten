@@ -43,7 +43,8 @@ namespace Daten
             int i = 0;
             Func<ChartPoint, string> labelPoint = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
             pieChart1.Series = new SeriesCollection();
-            foreach (var partie in partieList)
+            var shortPartieList = Operation.CreateShortPartieList(partieList);
+            foreach (var partie in shortPartieList)
             {
                 var partieColorList = Operation.CreatePariteColorList();
                 if (partieColorList.Select(x => x.Name == partie.Name).Contains(true))
