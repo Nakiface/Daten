@@ -93,6 +93,7 @@
   <ItemGroup>
     <Compile Include="Data\NecVoters.cs" />
     <Compile Include="Data\NecVotersPatie.cs" />
+    <Compile Include="Data\PartieColor.cs" />
     <Compile Include="GUI\DataSourceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +118,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Core\NecVotersLogic.cs" />
+    <Compile Include="Core\SortList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\DataSourceForm.resx">

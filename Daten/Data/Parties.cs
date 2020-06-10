@@ -15,12 +15,5 @@ namespace Daten
         public int Voters { get; set; }
         public float Percent { get; set; }
     }
-
-    public class PartieColor
-    {
-        public string Name { get; set; }
-        public System.Windows.Media.Brush Color { get; set; }
-        
-    }
 }
  

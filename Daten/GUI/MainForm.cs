@@ -141,70 +141,29 @@ namespace Daten
         private void ButtonMainDec_Click(object sender, EventArgs e)
         {
             var choiceToSort = comboBoxMain.SelectedItem.ToString();
-            dataGridViewMain.DataSource = OrderDistrictList(choiceToSort, true);
+            SortList sortList = new SortList();       
+            dataGridViewMain.DataSource = sortList.DistrictList(dataGridViewMain.Columns, DistrictList, choiceToSort, false);
         }
-
-        private List<Parties> OrderPartieList(string choiceToSort, bool dec)
-        {
-            string propertyName = "";
-            ElectionDistrict electionDistrict = (ElectionDistrict)dataGridViewMain.CurrentRow.DataBoundItem;
-            foreach (DataGridViewColumn column in dataGridViewSecond.Columns)
-            {
-                if (column.Name == choiceToSort)
-                    propertyName = column.DataPropertyName.ToString();
-            }
-            List<Parties> sortedDistrictList = new List<Parties>();
-            if (dec)
-            {
-                sortedDistrictList =
-                    electionDistrict.PartieList.OrderBy(x => x.GetType().GetProperty(propertyName).GetValue(x)).ToList();
-            }
-            else
-            {
-                sortedDistrictList =
-                    electionDistrict.PartieList.OrderByDescending(x => x.GetType().GetProperty(propertyName).GetValue(x)).ToList();
-            }
-            return sortedDistrictList;
-        }
-
-        private List<ElectionDistrict> OrderDistrictList(string choiceToSort, bool dec)
-        {
-            string propertyName = "";
-            foreach (DataGridViewColumn column in dataGridViewMain.Columns)
-            {
-                if (column.Name == choiceToSort)
-                    propertyName = column.DataPropertyName.ToString();
-            }
-            List<ElectionDistrict> sortedDistrictList = new List<ElectionDistrict>();
-            if (dec)
-            {
-                sortedDistrictList =
-                    DistrictList.OrderBy(x => x.GetType().GetProperty(propertyName).GetValue(x)).ToList();
-            }
-            else
-            {
-                sortedDistrictList =
-                    DistrictList.OrderByDescending(x => x.GetType().GetProperty(propertyName).GetValue(x)).ToList();
-            }
-            return sortedDistrictList;
-        }
-
+        
         private void buttonMainAc_Click(object sender, EventArgs e)
         {
-            var choiceToSort = comboBoxMain.SelectedItem.ToString();          
-            dataGridViewMain.DataSource = OrderDistrictList(choiceToSort, false);
+            var choiceToSort = comboBoxMain.SelectedItem.ToString();
+            SortList sortList = new SortList();
+            dataGridViewMain.DataSource = sortList.DistrictList(dataGridViewMain.Columns, DistrictList, choiceToSort, true);
         }
 
         private void buttonSecDec_Click(object sender, EventArgs e)
         {
             var choiceToSort = comboBoxSecound.SelectedItem.ToString();
-            dataGridViewSecond.DataSource = OrderPartieList(choiceToSort, false);
+            SortList sortList = new SortList();
+            dataGridViewSecond.DataSource = sortList.PartieList(dataGridViewMain, dataGridViewSecond.Columns, DistrictList, choiceToSort, false);
         }
 
         private void buttonSecAc_Click(object sender, EventArgs e)
         {
             var choiceToSort = comboBoxSecound.SelectedItem.ToString();
-            dataGridViewSecond.DataSource = OrderPartieList(choiceToSort, true);
+            SortList sortList = new SortList();
+            dataGridViewSecond.DataSource = sortList.PartieList(dataGridViewMain, dataGridViewSecond.Columns, DistrictList, choiceToSort, true);
         }
     }
 }
